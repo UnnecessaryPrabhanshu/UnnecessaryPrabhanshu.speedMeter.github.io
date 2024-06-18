@@ -73,7 +73,6 @@
             const gyroball = document.querySelector('.gyroball')
             const gyro = new Gyroscope({frequency:60})
             gyro.addEventListener('reading',(e)=>{
-                gyrodisplay.innerText = gyro.x
                 gyroball.style.left = (gyro.x * 100)+'px'
                 gyroball.style.top = (gyro.y * 100)+'px'
             })
