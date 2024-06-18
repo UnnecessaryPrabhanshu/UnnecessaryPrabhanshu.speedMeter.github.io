@@ -70,7 +70,12 @@
                 },1000)
 
             }
-            console.log(navigator.geolocation.watchPosition(success))
+            if(navigator.geolocation){
+                navigator.geolocation.watchPosition(success)
+            }
+            else{
+                alert('Geolocation is not supported in your device')
+            }
         </script>
     </body>
 </html>
