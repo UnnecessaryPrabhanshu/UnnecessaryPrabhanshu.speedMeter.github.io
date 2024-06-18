@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Geolocations
+        </title>
+        <style>
+            body{
+                overflow:hidden;
+                height:100vh;
+                width:100%;
+                display:flex;
+                justify-content:center;
+                align-items:Center;
+                flex-direction: column;
+                background-color:rgb(20, 19, 19);
+                color:white;
+                font-family:monospace;
+            }
+            span{
+                    font-family:monospace;
+                    font-size:5.29vh;
+                    color:white;
+
+                }
+                .unit{
+                    margin-left:2.2vh;
+                    color:red;
+                }
+                #light{
+                    display:block;
+                    width:4.29vh;
+                    height:4.29vh;
+                    border-radius: 100%;
+                    border:5px solid grey;
+                    margin-inline:auto;
+                    background-color:rgba(255, 0, 0,0.2);
+                }
+                .light_up{
+                    background-color:rgba(255, 0, 0, 1) !important;
+                }
+        </style>
+    </head>
+    <body>
+        <div>
+            <span id="display">0</span><span class="unit">KM/H</span>
+        </div>
+        <div>
+            <H1 id="longi"></H1>
+            <H1 id="lati"></H1>
+            <span id="light"></span>
+        </div>
+        <script>
+            const light = document.getElementById('light')
+            const display = document.getElementById('display')
+            const longi=document.getElementById('longi')
+            const lati = document.getElementById('lati')
+            document.querySelector('body').requestFullscreen()
+            function success(pos){
+                console.log(pos)
+                pos.coords.speed ? display.innerText=pos.coords.speed : display.innerText=0
+                longi.innerText=pos.coords.longitude
+                lati.innerText=pos.coords.latitude
+                light.classList.add('light_up')
+                console.log('on Light')
+                setTimeout(()=>{
+                    light.classList.remove('light_up')
+                    console.log('off light')
+                },1000)
+
+            }
+            console.log(navigator.geolocation.watchPosition(success))
+        </script>
+    </body>
+</html>
