@@ -23,6 +23,9 @@
                     color:white;
 
                 }
+                h1{
+                    text-align: center;
+                }
                 .unit{
                     margin-left:2.2vh;
                     color:red;
@@ -48,6 +51,7 @@
         <div>
             <H1 id="longi"></H1>
             <H1 id="lati"></H1>
+            <H1 id="gyro">gyro</H1>
             <span id="light"></span>
         </div>
         <script>
@@ -55,10 +59,11 @@
             const light = document.getElementById('light')
             const display = document.getElementById('display')
             const longi=document.getElementById('longi')
+            const gyrodisplay=document.getElementById('gyro')
             const lati = document.getElementById('lati')
             const gyro = new Gyroscope({frequency:60})
             gyro.addEventListener('reading',(e)=>{
-                console.log(gyro.x+"gyro x coordinates")
+                gyrodisplay.innerText = gyro.x
             })
             gyro.start()
 
