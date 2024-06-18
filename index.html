@@ -43,7 +43,7 @@
     </head>
     <body>
         <div>
-            <span id="display">0</span><span class="unit">KM/H</span>
+            <span id="display">0</span><span class="unit">Speed</span>
         </div>
         <div>
             <H1 id="longi"></H1>
@@ -51,10 +51,17 @@
             <span id="light"></span>
         </div>
         <script>
+
             const light = document.getElementById('light')
             const display = document.getElementById('display')
             const longi=document.getElementById('longi')
             const lati = document.getElementById('lati')
+            const gyro = new Gyroscope({frequency:60})
+            gyro.addEventListener('reading',(e)=>{
+                console.log(gyro.x+"gyro x coordinates")
+            })
+            gyro.start()
+
             function success(pos){
                 console.log(pos)
                 // pos.coords.speed ? display.innerText=pos.coords.speed : display.innerText=0
