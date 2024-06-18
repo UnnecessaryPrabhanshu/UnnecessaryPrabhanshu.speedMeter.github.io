@@ -58,7 +58,8 @@
             document.querySelector('body').requestFullscreen()
             function success(pos){
                 console.log(pos)
-                pos.coords.speed ? display.innerText=pos.coords.speed : display.innerText=0
+                // pos.coords.speed ? display.innerText=pos.coords.speed : display.innerText=0
+                display.innerText=pos.coords.speed
                 longi.innerText=pos.coords.longitude
                 lati.innerText=pos.coords.latitude
                 light.classList.add('light_up')
