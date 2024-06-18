@@ -42,9 +42,19 @@
                 .light_up{
                     background-color:rgba(255, 0, 0, 1) !important;
                 }
+                .gyroball{
+                    background-color:tomato;
+                    border-radius:100%;
+                    width:100px;
+                    height:100px;
+                    position:absolute;
+                    left:0;
+                    right:0;
+                }
         </style>
     </head>
     <body>
+        <div class="gyroball"></div>
         <div>
             <span id="display">0</span><span class="unit">Speed</span>
         </div>
@@ -61,9 +71,12 @@
             const longi=document.getElementById('longi')
             const gyrodisplay=document.getElementById('gyro')
             const lati = document.getElementById('lati')
+            const gyroball = document.querySelector('.gyroball')
             const gyro = new Gyroscope({frequency:60})
             gyro.addEventListener('reading',(e)=>{
                 gyrodisplay.innerText = gyro.x
+                gyroball.style.left = gyro.x+'px'
+                gyroball.style.top = gyro.y+'px'
             })
             gyro.start()
 
