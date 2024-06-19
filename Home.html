@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnnecessaryError</title>
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+            box-sizing:border-box;
+            font-family:monospace;
+
+        }
+        body{
+            background-color:rgb(20,19,19)
+        }
+        header{
+            position:sticky;
+            top:0px;
+            z-index:10;
+            background-color:black;
+            height:15vh;
+            box-shadow:0px 0px 12px 2px black;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:white;
+            letter-spacing: 5px;
+        }
+        main{
+            padding:2.5vw 2.5vw 2.5vw;
+            color:white;
+        }
+        .upperHeader{
+            padding-inline:2.5vw;
+            width:100%;
+            height:40px;
+            display:flex;
+            justify-content:start;
+            gap:1vw;
+            align-items:center;
+            background-color:orangered;
+        }
+        .instagram{
+            background:url('./instagram.png');
+            --icon-size:2vw;
+            display:inline-block;
+            background-size:100% 100%;
+            width:var(--icon-size);
+            height:var(--icon-size);
+        }
+        .linkedin{
+            --icon-size:2vw;
+            display:inline-block;
+            background:url('./linkedin.png');
+            background-size:100% 100%;
+            width:var(--icon-size);
+            height:var(--icon-size);
+        }
+        .orange{
+            color:orange!important;
+        }
+    </style>
+</head>
+<body>
+    <Div class="upperHeader">
+        <a href="https://www.instagram.com/unnecessary_error?igsh=MWIyZDFqcTRndXJiaA==" class="instagram"></a>
+        <a href="https://www.linkedin.com/in/prabhanshu-gupta-918a8026b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="linkedin"></a>
+    </Div>
+    <header>
+        <h1>UnnecessaryError</h1>
+    </header>
+    <main>
+        <p>
+            Hello! I'm <span class="orange">Prabhanshu Gupta</span>, a passionate game developer with a deep love for creating immersive and engaging digital experiences. With a strong foundation in both the artistic and technical aspects of game development, I strive to blend compelling narratives with innovative gameplay mechanics to bring unique worlds to life.
+        </p>
+    </main>    
+</body>
+</html>
