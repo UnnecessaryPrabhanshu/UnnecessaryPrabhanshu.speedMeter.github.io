@@ -16,6 +16,8 @@
         body{
             background-color:rgb(37, 36, 36);
             overflow-x:hidden;
+            perspective: 500px;
+
         }
         header{
             position:relative;
@@ -70,10 +72,11 @@
             }
         }
         main{
-            
+            transform-style:preserve-3d;
             padding:2.5vw 2.5vw 2.5vw;
             color:white;
             text-align: center;
+            transform: RotateY(45deg);
         }
         .upperHeader{
             padding-inline:2.5vw;
@@ -164,7 +167,8 @@
                 if(y>window.innerWidth+20){
                     y=window.innerWidth+10;
                 }
-                main.style.transform = "translate("+y+'px, '+x+'px)';
+                main.style.transform = "translate("+y+'px, '+x+'px) rotateY('+x+'deg)';
+                
             });
             gyro.start()
         </script>
