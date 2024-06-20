@@ -151,13 +151,14 @@
             console.log(window.innerWidth)
             console.log(window.innerHeight)
             gyro.addEventListener('reading',(r)=>{
+                console.log(r);
                 x+=gyro.x*100;
                 y+=gyro.y*100;
-                if(x>window.innerWidth+10){
-                    x=window.innerWidth+10;
+                if(x>window.innerHeight+20){
+                    x=window.innerHeight+10;
                 }
-                if(y>window.innerHeight+10){
-                    y=window.innerHeight+10;
+                if(y>window.innerWidth+20){
+                    y=window.innerWidth+10;
                 }
                 main.style.transform = "translate("+y+'px)';
             });
