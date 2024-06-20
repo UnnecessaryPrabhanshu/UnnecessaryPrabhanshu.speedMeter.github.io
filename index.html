@@ -113,10 +113,13 @@
             margin-bottom:1.25vmax;
             text-decoration:underline;
         }
+        .purple{
+            background-color: blueviolet !important;
+        }
     </style>
 </head>
 <body>
-    <Div class="upperHeader">
+    <Div class="upperHeader" id="upperHeader">
         <a href="https://www.instagram.com/unnecessary_error?igsh=MWIyZDFqcTRndXJiaA==" class="instagram"></a>
         <a href="https://www.linkedin.com/in/prabhanshu-gupta-918a8026b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="linkedin"></a>
     </Div>
@@ -137,12 +140,16 @@
         </video>
         <div class="video_label">Evil Ball</div>
         <script>
-            const gyro = new Gyroscope()
+            const gyro = new Gyroscope({frequency:60})
             const videoElements = document.querySelectorAll('video');
+            const header = document.getElementById('upperHeader');
             gyro.addEventListener('reading',(r)=>{
+                header.classList.add('purple');
+                setTimeout(()=>{
+                header.classList.remove('purple');
+                }, 500)
                 videoElements.forEach((e)=>{
-                    e.style.boxShaodw =  (gyro.x*100)+"px "+(gyro.y*100)+"px 22px 0.5px rgba(255, 68, 0, 0.416)";
-                    alert((gyro.x*100)+"px "+(gyro.y*100)+"px 22px 0.5px rgba(255, 68, 0, 0.416)")
+                    return e.style.boxShaodw =  (gyro.x*100)+"px "+(gyro.y*100)+"px 22px 0.5px rgba(255, 68, 0, 0.416)";
                 }); 
             });
             gyro.start()
