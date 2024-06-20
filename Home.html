@@ -20,13 +20,17 @@
             top:0px;
             z-index:10;
             background-color:black;
-            height:15vh;
+            height:15vmin;
             box-shadow:0px 0px 12px 2px black;
             display:flex;
             justify-content:center;
             align-items:center;
             color:white;
             letter-spacing: 5px;
+        }
+        header>h1{
+            font-size:2.5vmax;
+            
         }
         main{
             padding:2.5vw 2.5vw 2.5vw;
@@ -35,23 +39,23 @@
         .upperHeader{
             padding-inline:2.5vw;
             width:100%;
-            height:40px;
+            height:3.5vmax;
             display:flex;
             justify-content:start;
-            gap:1vw;
+            gap:2vw;
             align-items:center;
             background-color:orangered;
         }
         .instagram{
             background:url('./instagram.png');
-            --icon-size:2vw;
+            --icon-size:2.5vmax;
             display:inline-block;
             background-size:100% 100%;
             width:var(--icon-size);
             height:var(--icon-size);
         }
         .linkedin{
-            --icon-size:2vw;
+            --icon-size:2.5vmax;
             display:inline-block;
             background:url('./linkedin.png');
             background-size:100% 100%;
@@ -60,6 +64,18 @@
         }
         .orange{
             color:orange!important;
+        }
+        main video{
+            margin-block:2.5vmax;
+            width:100%;
+            height:auto;
+            object-fit:cover;
+            box-shadow:0px 0px 22px 0.5px rgba(255, 68, 0, 0.416);
+        }
+        .video_label{
+            margin-top:-1.25vmax;
+            margin-bottom:1.25vmax;
+            text-decoration:underline;
         }
     </style>
 </head>
@@ -72,9 +88,17 @@
         <h1>UnnecessaryError</h1>
     </header>
     <main>
+        <video src="./Recording.mp4" controls autoplay></video>
+        <div class="video_label">Subject 7 Godot Engine</div>
         <p>
-            Hello! I'm <span class="orange">Prabhanshu Gupta</span>, a passionate game developer with a deep love for creating immersive and engaging digital experiences. With a strong foundation in both the artistic and technical aspects of game development, I strive to blend compelling narratives with innovative gameplay mechanics to bring unique worlds to life.
+            Hello! I'm <span class="orange">Prabhanshu</span>, a passionate game developer currently learning and creating in the exciting world of game development. My journey is just beginning, and I am thrilled to share my progress and experiences as I work on my latest project.
         </p>
+        <p>I am currently developing a 2D platformer shooter game using the <span class="orange">Godot engine</span>. This project, though not completed yet, is a labor of love where I am blending creativity with technical skills to bring my vision to life.</p>
+
+        <p>As I work on this game, I am not only building a fun and engaging experience but also continuously learning and growing as a developer. Each step, from conceptualization to implementation, presents new challenges and opportunities to expand my knowledge.</p>
+        <video src="./BouncingBallVideo_11.mp4" controls></video>
+        <div class="video_label">Bouncing ball 3D animation</div>
+
     </main>    
 </body>
 </html>
