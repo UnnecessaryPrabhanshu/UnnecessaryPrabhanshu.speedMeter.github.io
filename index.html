@@ -148,7 +148,8 @@
             // const videoElements = document.querySelectorAll('video');
             const main = document.querySelector('main');
             const header = document.getElementById('upperHeader');
-            
+            console.log(window.innerWidth)
+            console.log(window.innerHeight)
             gyro.addEventListener('reading',(r)=>{
                 header.classList.add('purple');
                 setTimeout(()=>{
@@ -156,6 +157,12 @@
                 }, 1000)
                 x+=gyro.x*100;
                 y+=gyro.y*100;
+                if(x>window.innerWidth+100){
+                    x=window.innerWidth+100;
+                }
+                if(y>window.innerHeight+100){
+                    y=window.innerHeight+100;
+                }
                 main.style.transform = "translate("+x+'px)';
             });
             gyro.start()
