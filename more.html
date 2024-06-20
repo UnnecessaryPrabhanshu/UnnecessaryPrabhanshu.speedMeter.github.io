@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./logo.jpg" type="image/x-icon">
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+        }
+        header{
+            position:fixed;
+            height:2.5vmax;
+            display:flex;
+            justify-content:start;
+            align-items:center;
+            top:0;
+            z-index:100;
+            background-color:violet;
+            width:100%;
+
+        }
+        body{
+            background-color:rgb(56, 33, 33);
+        }
+        main{
+            perspective:500px;
+            overflow:hidden;
+            height:100vh;
+        }
+        a{
+            color:white;
+            text-decoration:none;
+            margin-left:1.3vmax;
+        }
+        section:nth-child(1){
+            background-color:orange;
+        }
+        section:nth-child(2){
+            background-color:orangered;
+
+        }
+        section:nth-child(3){
+            background-color:maroon;
+        }
+        section:nth-child(2){
+            left:100%;
+        }
+        section:nth-child(3){
+            left:200%;
+        }
+        
+        section{
+            transition-duration:0.5s;
+            transform-style:preserve-3d;
+            position:absolute;
+            height:100vh;
+            width:100%;
+
+        }
+    </style>
+    <title>More</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="slideBtn section_one" href="#section_one">sec_one</a>
+            <a class="slideBtn section_two" href="#section_two">sec_two</a>
+            <a class="slideBtn section_three" href="#section_three">sec_three</a>
+        </nav>
+    </header>
+    <main>
+        <section id="section_one"></section>
+        <section id="section_two"></section>
+        <section id="section_three"></section>
+    </main>
+    <script>
+        const slidebtn = document.querySelectorAll('.slideBtn');
+        slidebtn.forEach((e)=>{
+            return e.addEventListener('click',(e)=>{
+                console.log(e)
+                // console.log(document.querySelector('.'+e.target.classList[1]))
+                document.getElementById(e.target.classList[1]).style.transform = "scale(80%)"
+                setTimeout(()=>{
+                document.getElementById(e.target.classList[1]).style.transform = "scale(100%)"
+                }, 200)
+            })
+        })
+
+    </script>
+</body>
+</html>

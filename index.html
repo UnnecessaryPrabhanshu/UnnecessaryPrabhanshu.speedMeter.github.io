@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>UnnecessaryError</title>
+    <link rel="icon" href="./logo.jpg" type="image/x-icon">
     <style>
         *{
             padding:0px;
@@ -13,9 +13,9 @@
             font-family:monospace;
 
         }
+     
         body{
             background-color:rgb(37, 36, 36);
-            overflow-x:hidden;
             perspective: 500px;
 
         }
@@ -124,6 +124,10 @@
         .purple{
             background-color: blueviolet !important;
         }
+        a{
+            color:orangered;
+            
+        }
     </style>
 </head>
 <body>
@@ -133,6 +137,7 @@
     </Div>
     <header>
         <h1>UnnecessaryError</h1>
+        
     </header>
     <main>
         <video src="./Recording.mp4" controls autoplay muted controlsList="nodownload"></video>
@@ -147,6 +152,9 @@
         <video src="./bouncingBallAdvanceWithSound1080x768_1.mkv" controls controlsList="nodownload">
         </video>
         <div class="video_label">Evil Ball</div>
+        <a href="./more.html" title="Wanna see more?">More</a>
+    </main>
+    
         <script>
             let x=0;
             let y=0
@@ -171,6 +179,5 @@
             });
             gyro.start()
         </script>
-    </main>    
 </body>
 </html>
