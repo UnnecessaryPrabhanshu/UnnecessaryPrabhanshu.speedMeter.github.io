@@ -104,6 +104,7 @@
         main video{
             margin-block:2.5vmax;
             width:90%;
+            transition-duration:0.5s;
             height:auto;
             object-fit:cover;
             box-shadow:0px 0px 22px 0.5px rgba(255, 255, 255, 0.416);
@@ -140,16 +141,17 @@
         </video>
         <div class="video_label">Evil Ball</div>
         <script>
-            const gyro = new Gyroscope({frequency:60})
+            const gyro = new Gyroscope({frequency:24})
             const videoElements = document.querySelectorAll('video');
             const header = document.getElementById('upperHeader');
+            
             gyro.addEventListener('reading',(r)=>{
                 header.classList.add('purple');
                 setTimeout(()=>{
                 header.classList.remove('purple');
-                }, 500)
+                }, 1000)
                 videoElements.forEach((e)=>{
-                    return e.style.boxShaodw =  (gyro.x*100)+"px "+(gyro.y*100)+"px 22px 0.5px rgba(255, 68, 0, 0.416)";
+                    return e.style.boxShaodw =  (gyro.x*20)+"px "+(gyro.y*20)+"px 22px 0.5px rgba(255, 68, 0, 0.416)";
                 }); 
             });
             gyro.start()
