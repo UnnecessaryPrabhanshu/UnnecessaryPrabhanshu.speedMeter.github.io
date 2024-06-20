@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>UnnecessaryError</title>
     <style>
         *{
@@ -152,8 +153,8 @@
             console.log(window.innerHeight)
             gyro.addEventListener('reading',(r)=>{
                 console.log(r);
-                x+=Math.floor(gyro.x*10);
-                y+=Math.floor(gyro.y*10);
+                x+=gyro.x*5;
+                y+=gyro.y*5;
                 if(x>window.innerHeight+20){
                     x=window.innerHeight+10;
                 }
