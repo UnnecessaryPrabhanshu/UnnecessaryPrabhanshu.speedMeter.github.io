@@ -1,109 +1,109 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Geolocations
-        </title>
-        <style>
-            body{
-                text-align:center;
-                overflow:hidden;
-                height:100vh;
-                width:100%;
-                display:flex;
-                justify-content:center;
-                align-items:Center;
-                flex-direction: column;
-                background-color:rgb(20, 19, 19);
-                color:white;
-                font-family:monospace;
-            }
-            span{
-                    font-family:monospace;
-                    font-size:5.29vh;
-                    color:white;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnnecessaryError</title>
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+            box-sizing:border-box;
+            font-family:monospace;
 
-                }
-                h1{
-                    text-align: center;
-                }
-                .unit{
-                    margin-left:2.2vh;
-                    color:red;
-                }
-                #light{
-                    display:block;
-                    width:4.29vh;
-                    height:4.29vh;
-                    border-radius: 100%;
-                    border:5px solid grey;
-                    margin-inline:auto;
-                    background-color:rgba(255, 0, 0,0.2);
-                }
-                .light_up{
-                    background-color:rgba(255, 0, 0, 1) !important;
-                }
-                .gyroball{
-                    background-color:tomato;
-                    border-radius:100%;
-                    width:50px;
-                    height:50px;
-                    position:absolute;
-                    transform:translate(calc(50vw - 25px), calc(50vh - 25px))
-                }
-                body>a{
-
-                    font-size:4.5vmax;
-                }
-        </style>
-    </head>
-    <body>
-        <a href="./Home.html">Home</a>
-        <div class="gyroball"></div>
-        <div>
-            <span id="display">0</span><span class="unit">Speed</span>
-        </div>
-        <div>
-            <H1 id="longi"></H1>
-            <H1 id="lati"></H1>
-            <H1 id="gyro">gyro</H1>
-            <span id="light"></span>
-        </div>
+        }
+        body{
+            background-color:rgb(20,19,19)
+        }
+        header{
+            /* position:sticky; */
+            top:0px;
+            z-index:10;
+            background-color:black;
+            height:15vmin;
+            box-shadow:0px 0px 12px 2px black;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:white;
+            letter-spacing: 5px;
+        }
+        header>h1{
+            font-size:2.5vmax;
+            
+        }
+        main{
+            padding:2.5vw 2.5vw 2.5vw;
+            color:white;
+            text-align: center;
+        }
+        .upperHeader{
+            padding-inline:2.5vw;
+            width:100%;
+            height:3.5vmax;
+            display:flex;
+            justify-content:start;
+            gap:2vw;
+            align-items:center;
+            background-color:orangered;
+        }
+        .instagram{
+            background:url('./instagram.png');
+            --icon-size:2.5vmax;
+            display:inline-block;
+            background-size:100% 100%;
+            width:var(--icon-size);
+            height:var(--icon-size);
+        }
+        .linkedin{
+            --icon-size:2.5vmax;
+            display:inline-block;
+            background:url('./linkedin.png');
+            background-size:100% 100%;
+            width:var(--icon-size);
+            height:var(--icon-size);
+        }
+        .orange{
+            color:orange!important;
+        }
+        main video{
+            margin-block:2.5vmax;
+            width:90%;
+            height:auto;
+            object-fit:cover;
+            box-shadow:0px 0px 22px 0.5px rgba(255, 68, 0, 0.416);
+        }
+        .video_label{
+            margin-top:-1.25vmax;
+            margin-bottom:1.25vmax;
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+    <Div class="upperHeader">
+        <a href="https://www.instagram.com/unnecessary_error?igsh=MWIyZDFqcTRndXJiaA==" class="instagram"></a>
+        <a href="https://www.linkedin.com/in/prabhanshu-gupta-918a8026b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="linkedin"></a>
+    </Div>
+    <header>
+        <h1>UnnecessaryError</h1>
+    </header>
+    <main>
+        <video src="./Recording.mp4" controls autoplay muted controlsList="nodownload"></video>
+        <div class="video_label">Subject 7 Godot Engine</div>
+        <p>
+            Hello! I'm <span class="orange">Prabhanshu</span>, a passionate game developer currently learning and creating in the exciting world of game development. My journey is just beginning, and I am thrilled to share my progress and experiences as I work on my latest project.
+        </p>
+        <p>I am currently developing a 2D platformer shooter game using the <span class="orange">Godot engine</span>. This project, though not completed yet, is a labor of love where I am blending creativity with technical skills to bring my vision to life.</p>
+        <p>As I work on this game, I am not only building a fun and engaging experience but also continuously learning and growing as a developer. Each step, from conceptualization to implementation, presents new challenges and opportunities to expand my knowledge.</p>
+        <video src="./BouncingBallVideo_11.mp4" controls controlsList="nodownload"></video>
+        <div class="video_label">Bouncing ball 3D animation</div>
+        <video src="./bouncingBallAdvanceWithSound1080x768_1.mkv" controls controlsList="nodownload">
+        </video>
+        <div class="video_label">Evil Ball</div>
         <script>
 
-            const light = document.getElementById('light')
-            const display = document.getElementById('display')
-            const longi=document.getElementById('longi')
-            const gyrodisplay=document.getElementById('gyro')
-            const lati = document.getElementById('lati')
-            const gyroball = document.querySelector('.gyroball')
-            const gyro = new Gyroscope({frequency:60})
-            gyro.addEventListener('reading',(e)=>{
-                gyroball.style.left = (gyro.x * 100)+'px'
-                gyroball.style.top = (gyro.y * 100)+'px'
-            })
-            gyro.start()
-
-            function success(pos){
-                console.log(pos)
-                // pos.coords.speed ? display.innerText=pos.coords.speed : display.innerText=0
-                display.innerText=pos.coords.speed
-                longi.innerText=pos.coords.longitude
-                lati.innerText=pos.coords.latitude
-                light.classList.add('light_up')
-                console.log('on Light')
-                setTimeout(()=>{
-                    light.classList.remove('light_up')
-                    console.log('off light')
-                },1000)
-
-            }
-            if(navigator.geolocation){
-                navigator.geolocation.watchPosition(success)
-            }
-            else{
-                alert('Geolocation is not supported in your device')
-            }
         </script>
-    </body>
+    </main>    
+</body>
 </html>

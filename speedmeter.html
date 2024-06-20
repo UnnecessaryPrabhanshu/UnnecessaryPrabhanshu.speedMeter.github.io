@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Geolocations
+        </title>
+        <style>
+            body{
+                text-align:center;
+                overflow:hidden;
+                height:100vh;
+                width:100%;
+                display:flex;
+                justify-content:center;
+                align-items:Center;
+                flex-direction: column;
+                background-color:rgb(20, 19, 19);
+                color:white;
+                font-family:monospace;
+            }
+            span{
+                    font-family:monospace;
+                    font-size:5.29vh;
+                    color:white;
+
+                }
+                h1{
+                    text-align: center;
+                }
+                .unit{
+                    margin-left:2.2vh;
+                    color:red;
+                }
+                #light{
+                    display:block;
+                    width:4.29vh;
+                    height:4.29vh;
+                    border-radius: 100%;
+                    border:5px solid grey;
+                    margin-inline:auto;
+                    background-color:rgba(255, 0, 0,0.2);
+                }
+                .light_up{
+                    background-color:rgba(255, 0, 0, 1) !important;
+                }
+                .gyroball{
+                    background-color:tomato;
+                    border-radius:100%;
+                    width:50px;
+                    height:50px;
+                    position:absolute;
+                    transform:translate(calc(50vw - 25px), calc(50vh - 25px))
+                }
+                body>a{
+
+                    font-size:4.5vmax;
+                }
+        </style>
+    </head>
+    <body>
+        <a href="./Home.html">Home</a>
+        <div class="gyroball"></div>
+        <div>
+            <span id="display">0</span><span class="unit">Speed</span>
+        </div>
+        <div>
+            <H1 id="longi"></H1>
+            <H1 id="lati"></H1>
+            <H1 id="gyro">gyro</H1>
+            <span id="light"></span>
+        </div>
+        <script>
+
+            const light = document.getElementById('light')
+            const display = document.getElementById('display')
+            const longi=document.getElementById('longi')
+            const gyrodisplay=document.getElementById('gyro')
+            const lati = document.getElementById('lati')
+            const gyroball = document.querySelector('.gyroball')
+            const gyro = new Gyroscope({frequency:60})
+            gyro.addEventListener('reading',(e)=>{
+                gyroball.style.left = (gyro.x * 100)+'px'
+                gyroball.style.top = (gyro.y * 100)+'px'
+            })
+            gyro.start()
+
+            function success(pos){
+                console.log(pos)
+                // pos.coords.speed ? display.innerText=pos.coords.speed : display.innerText=0
+                display.innerText=pos.coords.speed
+                longi.innerText=pos.coords.longitude
+                lati.innerText=pos.coords.latitude
+                light.classList.add('light_up')
+                console.log('on Light')
+                setTimeout(()=>{
+                    light.classList.remove('light_up')
+                    console.log('off light')
+                },1000)
+
+            }
+            if(navigator.geolocation){
+                navigator.geolocation.watchPosition(success)
+            }
+            else{
+                alert('Geolocation is not supported in your device')
+            }
+        </script>
+    </body>
+</html>
