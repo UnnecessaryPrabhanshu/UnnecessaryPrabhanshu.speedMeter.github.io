@@ -142,7 +142,8 @@
         <div class="video_label">Evil Ball</div>
         <script>
             const gyro = new Gyroscope({frequency:24})
-            const videoElements = document.querySelectorAll('video');
+            // const videoElements = document.querySelectorAll('video');
+            const main = document.querySelector('main');
             const header = document.getElementById('upperHeader');
             
             gyro.addEventListener('reading',(r)=>{
@@ -150,9 +151,8 @@
                 setTimeout(()=>{
                 header.classList.remove('purple');
                 }, 1000)
-                videoElements.forEach((e)=>{
-                    return e.style.boxShaodw =  (gyro.x*20)+"px "+(gyro.y*20)+"px 22px 0.5px rgba(255, 68, 0, 0.416)";
-                }); 
+                main.style.transform = gyro.x*100+'px', gyro.y*100+'px';
+                
             });
             gyro.start()
         </script>
