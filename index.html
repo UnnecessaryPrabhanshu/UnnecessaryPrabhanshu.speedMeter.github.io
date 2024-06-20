@@ -152,8 +152,8 @@
             console.log(window.innerHeight)
             gyro.addEventListener('reading',(r)=>{
                 console.log(r);
-                x+=gyro.x*100;
-                y+=gyro.y*100;
+                x+=Math.floor(gyro.x*100);
+                y+=Math.floor(gyro.y*100);
                 if(x>window.innerHeight+20){
                     x=window.innerHeight+10;
                 }
