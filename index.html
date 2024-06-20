@@ -141,7 +141,8 @@
             const videoElements = document.querySelectorAll('video');
             gyro.addEventListener('reading',(r)=>{
                 videoElements.forEach((e)=>{
-                    e.style.boxShaodw =  (gyro.x*100)+"px "+(gyro.y*100)+"px 22px 0.5px rgba(255, 68, 0, 0.416)"
+                    e.style.boxShaodw =  (gyro.x*100)+"px "+(gyro.y*100)+"px 22px 0.5px rgba(255, 68, 0, 0.416)";
+                    alert((gyro.x*100)+"px "+(gyro.y*100)+"px 22px 0.5px rgba(255, 68, 0, 0.416)")
                 }); 
             });
             gyro.start()
