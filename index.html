@@ -68,6 +68,7 @@
             }
         }
         main{
+            
             padding:2.5vw 2.5vw 2.5vw;
             color:white;
             text-align: center;
@@ -151,7 +152,7 @@
                 setTimeout(()=>{
                 header.classList.remove('purple');
                 }, 1000)
-                main.style.transform = gyro.x*100+'px', gyro.y*100+'px';
+                main.style.transform = "translate("+gyro.x*100+'px', gyro.y*100+'px)';
                 
             });
             gyro.start()
