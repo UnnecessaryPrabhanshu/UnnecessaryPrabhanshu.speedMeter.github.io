@@ -12,14 +12,14 @@
             scroll-behavior:smooth;
         }
         header{
+            font-family:monospace;
             position:fixed;
-            height:2.5vmax;
             display:flex;
             justify-content:start;
             align-items:center;
             top:0;
             z-index:100;
-            background-color:violet;
+            background-color:black;
             width:100%;
 
         }
@@ -34,7 +34,9 @@
         a{
             color:white;
             text-decoration:none;
-            margin-left:1.3vmax;
+            margin-left:0.5vmax;
+            border:1px solid white;
+            padding-inline:5px;
         }
         section:nth-child(1){
             background-color:orange;
@@ -43,14 +45,16 @@
             background-color:orangered;
 
         }
-        section:nth-child(3){
-            background-color:maroon;
-        }
         section:nth-child(2){
             left:100%;
         }
         section:nth-child(3){
+            background-color:maroon;
             left:200%;
+        }
+        section:nth-child(4){
+            background:linear-gradient(45deg, purple 40%, rgb(71, 20, 255));
+            left:300%;
         }
         
         section{
@@ -70,12 +74,14 @@
             <a class="slideBtn section_one" href="#section_one">sec_one</a>
             <a class="slideBtn section_two" href="#section_two">sec_two</a>
             <a class="slideBtn section_three" href="#section_three">sec_three</a>
+            <a class="slideBtn section_three" href="#section_four">sec_four</a>
         </nav>
     </header>
     <main>
         <section id="section_one"></section>
         <section id="section_two"></section>
         <section id="section_three"></section>
+        <section id="section_four"></section>
     </main>
     <script>
         const slidebtn = document.querySelectorAll('.slideBtn');
@@ -83,7 +89,7 @@
             return e.addEventListener('click',(e)=>{
                 console.log(e)
                 // console.log(document.querySelector('.'+e.target.classList[1]))
-                document.getElementById(e.target.classList[1]).style.transform = "scale(80%)"
+                document.getElementById(e.target.classList[1]).style.transform = "scale(70%)"
                 setTimeout(()=>{
                 document.getElementById(e.target.classList[1]).style.transform = "scale(100%)"
                 }, 200)
