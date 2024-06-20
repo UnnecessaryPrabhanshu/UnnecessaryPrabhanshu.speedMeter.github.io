@@ -137,7 +137,14 @@
         </video>
         <div class="video_label">Evil Ball</div>
         <script>
-
+            const gyro = new Gyroscope()
+            const videoElements = document.querySelectorAll('video');
+            gyro.addEventListener('reading',(r)=>{
+                videoElements.forEach((e)=>{
+                    e.style.boxShaodw =  (gyro.x*10)+"px "+(gyro.y*10)+"px 22px 0.5px rgba(255, 68, 0, 0.416)"
+                });
+            });
+            gyro.start()
         </script>
     </main>    
 </body>
