@@ -13,7 +13,7 @@
 
         }
         body{
-            background-color:rgb(20,19,19)
+            background-color:rgb(37, 36, 36)
         }
         header{
             /* position:sticky; */
@@ -30,7 +30,40 @@
         }
         header>h1{
             font-size:2.5vmax;
-            
+            letter-spacing:0px;
+            position:relative;
+            overflow:hidden;
+        }
+        header>h1::after{
+            position:absolute;
+            width:100%;
+            left:0;
+            height:100%;
+            z-index:10;
+            background-color:black;
+            content:'';
+            animation-name:typingAnimation;
+            animation-duration: 5s;
+            animation-timing-function:steps(20);
+            animation-iteration-count: infinite;
+        }
+        header>h1::before{
+            width:1ch;
+            height:100%;
+            left:0;
+            background-color:white;
+            animation-name:typingAnimation;
+            animation-duration:5s;
+            animation-iteration-count:infinite;
+            z-index:11;
+            animation-timing-function: steps(20);
+            position:absolute;
+            content:'';
+        }
+        @keyframes typingAnimation{
+            50%{
+                left:100%;
+            }
         }
         main{
             padding:2.5vw 2.5vw 2.5vw;
@@ -40,7 +73,7 @@
         .upperHeader{
             padding-inline:2.5vw;
             width:100%;
-            height:3.5vmax;
+            height:4vmax;
             display:flex;
             justify-content:start;
             gap:2vw;
