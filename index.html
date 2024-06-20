@@ -142,6 +142,8 @@
         </video>
         <div class="video_label">Evil Ball</div>
         <script>
+            let x=0;
+            let y=0
             const gyro = new Gyroscope({frequency:24})
             // const videoElements = document.querySelectorAll('video');
             const main = document.querySelector('main');
@@ -152,7 +154,9 @@
                 setTimeout(()=>{
                 header.classList.remove('purple');
                 }, 1000)
-                main.style.transform = "translate("+gyro.x*100+'px', gyro.y*100+'px)';
+                x+=x*gyro.x*10;
+                y+=y*gyro.y*10;
+                main.style.transform = "translate("+x+'px, '+y+'px)';
                 
             });
             gyro.start()
