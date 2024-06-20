@@ -17,7 +17,7 @@
             background-color:rgb(37, 36, 36)
         }
         header{
-            /* position:sticky; */
+            position:relative;
             top:0px;
             z-index:10;
             background-color:black;
@@ -153,8 +153,8 @@
             console.log(window.innerHeight)
             gyro.addEventListener('reading',(r)=>{
                 console.log(r);
-                x+=gyro.x*5;
-                y+=gyro.y*5;
+                x+=gyro.x*2;
+                y+=gyro.y*2;
                 if(x>window.innerHeight+20){
                     x=window.innerHeight+10;
                 }
