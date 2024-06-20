@@ -154,8 +154,8 @@
                 setTimeout(()=>{
                 header.classList.remove('purple');
                 }, 1000)
-                x+=x*gyro.x*100;
-                y+=y*gyro.y*100;
+                x+=gyro.x*100;
+                y+=gyro.y*100;
                 main.style.transform = "translate("+x+'px)';
             });
             gyro.start()
