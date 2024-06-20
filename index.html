@@ -76,7 +76,6 @@
             padding:2.5vw 2.5vw 2.5vw;
             color:white;
             text-align: center;
-            transform: RotateY(45deg);
         }
         .upperHeader{
             padding-inline:2.5vw;
@@ -167,7 +166,7 @@
                 if(y>window.innerWidth+20){
                     y=window.innerWidth+10;
                 }
-                main.style.transform = "translate("+y+'px, '+x+'px) rotateY('+x+'deg)';
+                main.style.transform = "translate("+y+'px, '+x+'px) rotateY('+y+'deg)';
                 
             });
             gyro.start()
