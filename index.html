@@ -44,13 +44,15 @@
             content:'';
             animation-name:typingAnimation;
             animation-duration: 5s;
+            animation-delay:0.5s;
             animation-timing-function:steps(20);
             animation-iteration-count: infinite;
         }
         header>h1::before{
-            width:1ch;
+            width:1vmax;
             height:100%;
             left:0;
+            animation-delay:0.5s;
             background-color:white;
             animation-name:typingAnimation;
             animation-duration:5s;
