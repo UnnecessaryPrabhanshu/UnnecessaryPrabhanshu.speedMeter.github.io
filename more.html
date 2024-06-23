@@ -8,7 +8,7 @@
         :root{
             --header_height:4.5vmax;
             --paddding_lrb:1.5vmax;
-            --zoom_in_out_transition_duration:1s;
+            --zoom_in_out_transition_duration:0.2s;
             --section_shadow:0px 0px 22px 0.2px aqua;
         }
         *{
@@ -35,7 +35,7 @@
         }
         main{
             perspective:500px;
-            overflow-y: hidden;
+            overflow-x: hidden;
             height:100vh;
         }
         a{
@@ -75,7 +75,11 @@
 
         }
         .button{
-            --width:120px;
+            --width:12.2vmax;
+            --max_width:150px;
+            --min_width:50px;
+            max-width:var(--max_width);
+            min-width:var(--min_width);
             background-color:black;
             color:white;
             border-radius:calc(calc(var(--width) / 2) / 2);
@@ -94,10 +98,18 @@
 <body>
     <header>
         <nav>
-            <a class="slideBtn section_one" href="#section_one">sec_one</a>
-            <a class="slideBtn section_two" href="#section_two">sec_two</a>
-            <a class="slideBtn section_three" href="#section_three">sec_three</a>
-            <a class="slideBtn section_four" href="#section_four">sec_four</a>
+            <a class="slideBtn section_one" href="#section_one">
+                sec_one
+            </a>
+            <a class="slideBtn section_two" href="#section_two">
+                sec_two
+            </a>
+            <a class="slideBtn section_three" href="#section_three">
+                sec_three
+            </a>
+            <a class="slideBtn section_four" href="#section_four">
+                sec_four
+            </a>
         </nav>
     </header>
     <main>
@@ -129,18 +141,11 @@
         const slidebtn = document.querySelectorAll('.slideBtn');
         slidebtn.forEach((e)=>{
             return e.addEventListener('click',(e)=>{
-                // console.log(e)
-                // // console.log(document.querySelector('.'+e.target.classList[1]))
-                // document.getElementById(e.target.classList[1]).style.transform = "scale(70%)"
-                // setTimeout(()=>{
-                // document.getElementById(e.target.classList[1]).style.transform = "scale(100%)"
-                // }, 500)
                 document.querySelectorAll('section').forEach((item)=>{
                         item.classList.add('zoomOut70')
-                        setTimeout(()=>{
-                                item.classList.remove('zoomOut70');
-                            }, 500)
-
+                        item.addEventListener('transitionend',(e)=>{
+                            item.classList.remove('zoomOut70');
+                        })
                 })
             })
         })
