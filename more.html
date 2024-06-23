@@ -8,8 +8,12 @@
         :root{
             --header_height:4.5vmax;
             --paddding_lrb:1.5vmax;
-            --zoom_in_out_transition_duration:0.2s;
+            --zoom_in_out_transition_duration:0.5s;
             --section_shadow:0px 0px 22px 0.2px aqua;
+            --nav_link_border_size:1px;
+            --nav_link_font_size:2.2vmax;
+            --nav_link_max_font_size:16px;
+            --nav_link_min_font_size:8px;
         }
         *{
             padding:0;
@@ -18,17 +22,22 @@
             scroll-behavior:smooth;
         }
         header{
+            padding-inline:calc(var(--header_height) / 4);
             font-family:monospace;
             position:fixed;
             display:flex;
-            height:var(--header_height);
+            overflow-x:scroll;
+            padding-block:calc(var(--header_height) / 2);
             justify-content:start;
+            gap:calc(var(--header_height) / 3);
             align-items:center;
             top:0;
             z-index:100;
-            background-color:black;
             width:100%;
-
+            background-color:black;
+        }
+        header::-webkit-scrollbar{
+            display:none;
         }
         body{
             background-color:rgb(0, 0, 0);
@@ -40,10 +49,11 @@
         }
         a{
             color:white;
+            font-size:clamp(var(--nav_link_min_font_size), var(--nav_link_font_size), var(--nav_link_max_font_size));
             text-decoration:none;
-            margin-left:0.5vmax;
-            border:1px solid white;
-            padding-inline:5px;
+            /* margin-left:0.5vmax; */
+            border:var(--nav_link_border_size) solid white;
+            /* padding-inline:5px; */
         }
         section:nth-child(1){
             background-color:orange;
@@ -69,25 +79,27 @@
             transform-style:preserve-3d;
             position:absolute;
             /* box-shadow:var(--section_shadow); */
-            height:100vh;
-            padding:calc(var(--header_height) + var(--paddding_lrb)) var(--paddding_lrb) var(--paddding_lrb) var(--paddding_lrb) ;
+            min-height:100vh;
+            padding:calc(calc(var(--header_height) + calc(var(--nav_link_border_size) * 2) + var(--nav_link_font_size)) + var(--paddding_lrb)) var(--paddding_lrb) var(--paddding_lrb) var(--paddding_lrb) ;
             width:100%;
 
         }
         .button{
             --width:12.2vmax;
-            --max_width:150px;
+            --max_width:130px;
             --min_width:50px;
+            --calculated_width:clamp(var(--min_width), var(--width), var(--max_width));
             max-width:var(--max_width);
             min-width:var(--min_width);
+            box-sizing: border-box;
             background-color:black;
             color:white;
-            border-radius:calc(calc(var(--width) / 2) / 2);
-            border:none;
-            font-size:calc(calc(calc(var(--width) / 2) / 2) / 2);
-            width:var(--width);
-            height:calc(var(--width) / 2);
-
+            border-radius:calc(calc(var(--calculated_width) / 2) / 2);
+            border:calc(var(--calculated_width) / 15) solid purple;
+            margin-block:1.2vmax;
+            font-size:calc(calc(calc(var(--calculated_width) / 2) / 2) / 2);
+            width:var(--calculated_width);
+            height:calc(var(--calculated_width) / 2);
         }
         .zoomOut70{
             transform:scale(70%);
@@ -97,7 +109,6 @@
 </head>
 <body>
     <header>
-        <nav>
             <a class="slideBtn section_one" href="#section_one">
                 sec_one
             </a>
@@ -110,7 +121,6 @@
             <a class="slideBtn section_four" href="#section_four">
                 sec_four
             </a>
-        </nav>
     </header>
     <main>
         <section id="section_one">
