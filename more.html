@@ -16,8 +16,10 @@
             --nav_link_min_font_size:8px;
         }
         *{
+            font-family:monospace ;
             padding:0;
             margin:0;
+            color:white;
             box-sizing:border-box;
             scroll-behavior:smooth;
         }
@@ -56,21 +58,23 @@
             /* padding-inline:5px; */
         }
         section:nth-child(1){
-            background-color:orange;
+            background-color:rgb(29, 29, 29);
         }
         section:nth-child(2){
-            background-color:orangered;
-
+            background-color:rgb(29, 29, 29);
+            
         }
         section:nth-child(2){
             left:100%;
         }
         section:nth-child(3){
-            background-color:maroon;
+            background-color:rgb(29, 29, 29);
+            
             left:200%;
         }
         section:nth-child(4){
-            background:linear-gradient(45deg, purple 40%, rgb(71, 20, 255));
+            background-color:rgb(29, 29, 29);
+
             left:300%;
         }
         
@@ -79,14 +83,33 @@
             transform-style:preserve-3d;
             position:absolute;
             /* box-shadow:var(--section_shadow); */
-            min-height:100vh;
+            height:100vh;
             padding:calc(calc(var(--header_height) + calc(var(--nav_link_border_size) * 2) + var(--nav_link_font_size)) + var(--paddding_lrb)) var(--paddding_lrb) var(--paddding_lrb) var(--paddding_lrb) ;
             width:100%;
+            overflow-x: hidden;
+            text-align: center;
+           
+
+        }
+      
+        section>div::-webkit-scrollbar{
+            display:none;
+        }
+        
+        section>div{
+            gap:2.2vmax;
+            display:flex;
+            justify-content:start;
+            align-items:center;
+            flex-direction:column;
+            overflow-y:auto;
+            overflow-x:hidden;
 
         }
         .button{
             --width:12.2vmax;
             --max_width:130px;
+            --border_on_off:0;
             --min_width:50px;
             --calculated_width:clamp(var(--min_width), var(--width), var(--max_width));
             max-width:var(--max_width);
@@ -95,14 +118,70 @@
             background-color:black;
             color:white;
             border-radius:calc(calc(var(--calculated_width) / 2) / 2);
-            border:calc(var(--calculated_width) / 15) solid purple;
-            margin-block:1.2vmax;
+            border:calc(var(--border_on_off) * calc(var(--calculated_width) / 15)) solid purple;
+            margin-block:2.5vmax;
             font-size:calc(calc(calc(var(--calculated_width) / 2) / 2) / 2);
             width:var(--calculated_width);
-            height:calc(var(--calculated_width) / 2);
+            padding-block:calc(calc(var(--calculated_width) / 2) / 3);
+            transition-duration:0.5s;
+
+        }
+        .button:hover{
+            position:relative;
+            box-shadow:5px 5px 14px 0.2px rgba(0,0,0,0.7),-5px -5px 14px 0.2px rgba(0,0,0,0.7),-5px -5px 24px 1.2px orangered, 5px 5px 24px 1.2px aquamarine;
+
+        }
+        .button:hover::after, .button:hover::before{
+            display:unset;
+        }
+        .button::after{
+            left:100%;
+            position:absolute;
+            content:'';
+            width:10px;
+            display:none;
+            height:5px;
+            box-shadow:0px 0px 44px 12px orangered;
+            background-color:orange;
+            animation-name: anime;
+            animation-iteration-count:infinite;
+            animation-duration:0.1s;
+            animation-timing-function:linear;
+            transform-origin:calc(calc(var(--calculated_width) + calc(var(--calculated_width) / 15)) / -2) 50%;
+        }
+        @keyframes anime{
+            100%{
+                transform: rotate(360deg);
+                opacity:unset;
+            }
+        }
+        .button::before{
+            right:100%;
+            position:absolute;
+            content:'';
+            display:none;
+            width:10px;
+            height:5px;
+            box-shadow:0px 0px 44px 12px aquamarine;
+            background-color:aqua;
+            animation-name: anime;
+            animation-iteration-count:infinite;
+            animation-duration:0.1s;
+            animation-timing-function:linear;
+            transform-origin:calc(calc(var(--calculated_width) + calc(var(--calculated_width) / 15)) / 2) 50%;
+
+
         }
         .zoomOut70{
             transform:scale(70%);
+        }
+        img{
+            width:70%;
+            object-fit:cover;
+        }
+        video{
+            width:70%;
+            object-fit:cover;
         }
     </style>
     <title>More</title>
@@ -110,10 +189,10 @@
 <body>
     <header>
             <a class="slideBtn section_one" href="#section_one">
-                sec_one
+                Renders
             </a>
             <a class="slideBtn section_two" href="#section_two">
-                sec_two
+                Videos
             </a>
             <a class="slideBtn section_three" href="#section_three">
                 sec_three
@@ -124,17 +203,35 @@
     </header>
     <main>
         <section id="section_one">
-            <h4>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos quod quibusdam a error, obcaecati reiciendis debitis cupiditate animi excepturi, tempore magnam cumque modi id quam doloribus ut officiis. Officia, neque nemo iusto eaque rem facilis tempora pariatur rerum excepturi repellendus eius, labore reiciendis quia? Expedita.s
-            </h4>
-            <button class="button">
-                123
-            </button>
+            <div>
+                <h2>
+                    Renders
+                </h2>
+                <img src="./2Anglewarmacglare.png" title="RenderImage">
+                <img src="./ball.png" title="RenderImage">
+                <img src="./Bat.png" title="RenderImage">
+                <img src="./BlackOps.png" title="RenderImage">
+                <img src="./car2.png" title="RenderImage">
+                <img src="./CricketBall.png" title="RenderImage">
+                <!-- <img src="./2Anglewarmacglare.png" title="RenderImage">
+                <img src="./2Anglewarmacglare.png" title="RenderImage">
+                <img src="./2Anglewarmacglare.png" title="RenderImage">
+                <img src="./2Anglewarmacglare.png" title="RenderImage"> -->
+                <a class="button" href="./index.html">Main Page</a>
+            </div>
+            
         </section>
         <section id="section_two">
-            <h4>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos quod quibusdam a error, obcaecati reiciendis debitis cupiditate animi excepturi, tempore magnam cumque modi id quam doloribus ut officiis. Officia, neque nemo iusto eaque rem facilis tempora pariatur rerum excepturi repellendus eius, labore reiciendis quia? Expedita.s
-            </h4>
+            <div>
+                <h2>
+                    Videos
+                 </h2>
+                 <video src="./bouncingBallAdvanceWithSound1080x768_1.mkv" autoplay muted></video>
+                 <video src="./0001-0250.mkv" autoplay muted></video>
+                 <video src="./BouncingBallVideo_11.mp4" autoplay muted></video>
+                 <video src="./MoonTempleFogV_3.mp4" autoplay muted></video>
+            </div>
+            
         </section>
         <section id="section_three">
             <h4>
